@@ -11,8 +11,8 @@
 
 .cartItem {
     border-radius: 15px;
-    width: 250px;
-    padding: 20px;
+    width: 350px;
+    padding: 35px;
     background-color: rgb(210, 218, 222);
     margin: 20px;
     align-items: center;
@@ -27,4 +27,12 @@
     text-align: center;
     border-color: grey;
     border: solid;
+}
+
+.details button {
+    margin: 10px;
+}
+
+.h2Cart {
+    text-align: center;
 }

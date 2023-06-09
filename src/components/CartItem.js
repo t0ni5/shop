@@ -1,7 +1,6 @@
 import { increase, decrease, deleteItem } from "../reducers/cartReducer"
 import { useDispatch } from "react-redux"
 import { useState } from "react"
-import { toBeDisabled } from "@testing-library/jest-dom/matchers"
 import {
     showNotification,
     hideNotification,
@@ -53,11 +52,16 @@ const CartItem = ({ item }) => {
                     </p>
                     <p>
                         {quantity < 2 ? (
-                            <Button variant="secondary" disabled={1}>
+                            <Button
+                                className="details button"
+                                variant="secondary"
+                                disabled={1}
+                            >
                                 Less
                             </Button>
                         ) : (
                             <Button
+                                className="details button"
                                 variant="outline-primary"
                                 onClick={() => handleItemDecreasing(item.id)}
                             >

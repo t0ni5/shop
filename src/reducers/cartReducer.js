@@ -2,6 +2,10 @@ import { createSlice } from "@reduxjs/toolkit"
 
 const initialState = []
 
+const setStateToLocalStorage = (newState) => {
+    window.localStorage.setItem("usersCart", JSON.stringify(newState))
+}
+
 const cartSlice = createSlice({
     name: "cart",
     initialState,
@@ -27,7 +31,7 @@ const cartSlice = createSlice({
             }
 
             const newState = state.concat({ ...action.payload, quantity: 1 })
-            window.localStorage.setItem("usersCart", JSON.stringify(newState))
+            setStateToLocalStorage(newState)
             return newState
         },
         deleteItem(state, action) {
@@ -37,7 +41,7 @@ const cartSlice = createSlice({
 
             const newState = state.filter((item) => item.id !== itemToDelete.id)
 
-            window.localStorage.setItem("usersCart", JSON.stringify(newState))
+            setStateToLocalStorage(newState)
             return newState
         },
         setCart(state, action) {
@@ -57,7 +61,7 @@ const cartSlice = createSlice({
                 item.id === action.payload ? changedItem : item
             )
 
-            window.localStorage.setItem("usersCart", JSON.stringify(newState))
+            setStateToLocalStorage(newState)
 
             return newState
         },
@@ -75,7 +79,7 @@ const cartSlice = createSlice({
                 item.id === action.payload ? changedItem : item
             )
 
-            window.localStorage.setItem("usersCart", JSON.stringify(newState))
+            setStateToLocalStorage(newState)
 
             return newState
         },
